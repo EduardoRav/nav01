@@ -1,6 +1,7 @@
 require 'net/http'
 require 'json'
 $urlString = 'https://api.stagingeb.com/v1/contact_requests'
+$testCode = ''
 def main
 	url = URI.parse($urlString)
 	http = Net::HTTP.new(url.host,url.port)
@@ -26,6 +27,7 @@ def informationAndPrint(data)
 	else 
 		puts "ERROR: #{data.code}"
 	end
+	$testCode = data.code
 end
 
 main
